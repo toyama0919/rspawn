@@ -1,16 +1,16 @@
 # -*- encoding: utf-8 -*-
 
-require File.expand_path('../lib/dmon/version', __FILE__)
+require File.expand_path('../lib/rspawn/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = "dmon"
-  gem.version       = Dmon::VERSION
+  gem.name          = "rspawn"
+  gem.version       = Rspawn::VERSION
   gem.summary       = %q{very simple daemon.}
   gem.description   = %q{very simple daemon.}
   gem.license       = "MIT"
   gem.authors       = ["Hiroshi Toyama"]
   gem.email         = "toyama0919@gmail.com"
-  gem.homepage      = "https://github.com/toyama0919/dmon"
+  gem.homepage      = "https://github.com/toyama0919/rspawn"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }

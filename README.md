@@ -1,4 +1,4 @@
-# dmon [![Build Status](https://secure.travis-ci.org/toyama0919/dmon.png?branch=master)](http://travis-ci.org/toyama0919/dmon)
+# rspawn [![Build Status](https://secure.travis-ci.org/toyama0919/rspawn.png?branch=master)](http://travis-ci.org/toyama0919/rspawn)
 
 TODO: Summary
 
@@ -6,14 +6,14 @@ TODO: Description
 
 ## Examples
 
-    $ dmon sample
+    $ rspawn sample
     #=> hoge
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
-    gem 'dmon'
+    gem 'rspawn'
 
 And then execute:
 
@@ -21,7 +21,7 @@ And then execute:
 
 Or install it yourself as:
 
-    $ gem install dmon
+    $ gem install rspawn
 
 ## Contributing
 
@@ -33,9 +33,9 @@ Or install it yourself as:
 
 ## Information
 
-* [Homepage](https://github.com/toyama0919/dmon)
-* [Issues](https://github.com/toyama0919/dmon/issues)
-* [Documentation](http://rubydoc.info/gems/dmon/frames)
+* [Homepage](https://github.com/toyama0919/rspawn)
+* [Issues](https://github.com/toyama0919/rspawn/issues)
+* [Documentation](http://rubydoc.info/gems/rspawn/frames)
 * [Email](mailto:toyama0919@gmail.com)
 
 ## Copyright

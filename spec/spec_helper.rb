@@ -1,7 +1,7 @@
 require 'rspec'
-require 'dmon/version'
+require 'rspawn/version'
 
-include Dmon
+include Rspawn
 
 def capture_stdout
   out = StringIO.new

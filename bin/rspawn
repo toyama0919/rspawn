@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 
 require 'rubygems'
-require 'dmon'
+require 'rspawn'
 
-Dmon::CLI.start
+Rspawn::CLI.start

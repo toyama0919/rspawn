@@ -1,4 +1,4 @@
-module Dmon
+module Rspawn
   class Config
 
     def initialize(root, key, cli_options)

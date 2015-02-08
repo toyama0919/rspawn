@@ -1,13 +1,13 @@
 require 'spec_helper'
-require 'dmon'
+require 'rspawn'
 
-describe Dmon::CLI do
+describe Rspawn::CLI do
   before do
   end
 
   it "should stdout sample" do
     output = capture_stdout do
-      Dmon::CLI.start(['help'])
+      Rspawn::CLI.start(['help'])
     end
     output.should_not nil
   end

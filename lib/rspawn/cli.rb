@@ -1,12 +1,12 @@
 require 'thor'
 require 'json'
 
-module Dmon
+module Rspawn
   class CLI < Thor
 
     include Thor::Actions
 
-    class_option :root, type: :string, default: ENV['HOME'] + '/.dmon', desc: 'dmon root'
+    class_option :root, type: :string, default: ENV['HOME'] + '/.rspawn', desc: 'rspawn root'
     class_option :processes, aliases: '-p', type: :numeric, default: nil, desc: 'command'
     class_option :working_dir, type: :string, default: nil, desc: 'command'
     class_option :log_file, type: :string, default: nil, desc: 'command'
@@ -35,7 +35,7 @@ module Dmon
     desc "stop", "stop daemon"
     def stop(key)
       option, command = @config.option
-      DmonWorker.spawn!(option, ["stop"])
+      RspawnWorker.spawn!(option, ["stop"])
     end
 
     desc "status", "staus check daemon"
@@ -47,7 +47,7 @@ module Dmon
         puts "#{proc_name}:"
         puts "command: #{command}"
         puts "#{option}"
-        DmonWorker.spawn!(option, ["status"])
+        RspawnWorker.spawn!(option, ["status"])
         puts
       end
     end
@@ -72,7 +72,7 @@ module Dmon
     def start_action(command, action)
       option, command = @config.option(command)
       @config.save(option, command)
-      DmonWorker.spawn!(option, [action, command])
+      RspawnWorker.spawn!(option, [action, command])
       tail_log(option[:log_file]) if @class_options['tail']
     end
 

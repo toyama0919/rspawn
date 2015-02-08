@@ -1,4 +1,4 @@
-module Dmon
+module Rspawn
   class Core
 
     def initialize

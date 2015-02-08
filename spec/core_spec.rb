@@ -1,7 +1,7 @@
 require 'spec_helper'
-require 'dmon'
+require 'rspawn'
 
-describe Dmon::Core do
+describe Rspawn::Core do
   before do
     @core = Core.new
   end
