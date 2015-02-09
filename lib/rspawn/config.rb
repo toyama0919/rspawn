@@ -33,12 +33,12 @@ module Rspawn
     def option(command = nil)
       option = {}
       save_option = load
-      option[:working_dir] = @cli_options['working_dir'] || save_option['working_dir'] || config_dir
+      option[:working_dir] = @cli_options['working_dir'] || save_option['working_dir'] || Dir.pwd
       FileUtils.mkdir_p(option[:working_dir])
       Dir::chdir(option[:working_dir])
 
-      option[:log_file] = @cli_options['log_file'] || save_option['log_file'] || option[:working_dir] + '/' + @key + '.log'
-      option[:pid_file] = @cli_options['pid_file'] || save_option['pid_file'] || option[:working_dir] + '/' + @key + '.pid'
+      option[:log_file] = @cli_options['log_file'] || save_option['log_file'] || config_dir + '/' + @key + '.log'
+      option[:pid_file] = @cli_options['pid_file'] || save_option['pid_file'] || config_dir + '/' + @key + '.pid'
       option[:timeout] = @cli_options['timeout'] || save_option['timeout'] || 10
       option[:processes] = @cli_options['processes'] || save_option['processes'] || 1
       command = command || save_option['command']
