@@ -42,14 +42,16 @@ module Rspawn
     def status(key = nil)
       keys = key.nil? ? Dir.glob(@class_options['root'] + "/*") : [key]
       keys = keys.map { |file| File.basename(file) }
+      result = {}
       keys.each do |proc_name|
         option, command = get_config(proc_name).option
-        puts "#{proc_name}:"
-        puts "command: #{command}"
-        puts "#{option}"
-        RspawnWorker.spawn!(option, ["status"])
-        puts
+        option[:status] = capture_stdout do
+          RspawnWorker.spawn!(option, ["status"])
+        end
+        option[:command] = command
+        result[proc_name] = option
       end
+      puts JSON.pretty_generate(result)
     end
 
     desc 'remove', 'remove'
@@ -84,6 +86,15 @@ module Rspawn
 
     def get_config(key)
       Config.new(@class_options['root'], key, @class_options)
+    end
+
+    def capture_stdout
+      out = StringIO.new
+      $stdout = out
+      yield
+      return out.string
+    ensure
+      $stdout = STDOUT
     end
   end
 end
